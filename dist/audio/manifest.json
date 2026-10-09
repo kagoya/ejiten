@@ -1,0 +1,227 @@
+{
+  "source": "Newly generated speech via Microsoft Edge online TTS, using edge-tts 7.2.8",
+  "generated_at": "2026-10-09T10:33:25.896855+00:00",
+  "original_recordings_used": false,
+  "items": [
+    {
+      "id": "bag",
+      "lang": "ja",
+      "text": "かばん",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/bag-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "bag",
+      "lang": "pt",
+      "text": "bolsa",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/bag-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "chair",
+      "lang": "ja",
+      "text": "いす",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/chair-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "chair",
+      "lang": "pt",
+      "text": "cadeira",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/chair-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "clothes",
+      "lang": "ja",
+      "text": "ふく",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/clothes-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "clothes",
+      "lang": "pt",
+      "text": "roupa",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/clothes-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "crayons",
+      "lang": "ja",
+      "text": "クレヨン",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/crayons-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "crayons",
+      "lang": "pt",
+      "text": "giz de cera",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/crayons-pt.mp3",
+      "bytes": 13248,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "door",
+      "lang": "ja",
+      "text": "ドア",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/door-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "door",
+      "lang": "pt",
+      "text": "porta",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/door-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "hat",
+      "lang": "ja",
+      "text": "ぼうし",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/hat-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "hat",
+      "lang": "pt",
+      "text": "chapéu",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/hat-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "scissors",
+      "lang": "ja",
+      "text": "はさみ",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/scissors-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "scissors",
+      "lang": "pt",
+      "text": "tesoura",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/scissors-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "shoes",
+      "lang": "ja",
+      "text": "くつ",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/shoes-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "shoes",
+      "lang": "pt",
+      "text": "sapato",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/shoes-pt.mp3",
+      "bytes": 11808,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "socks",
+      "lang": "ja",
+      "text": "くつした",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/socks-ja.mp3",
+      "bytes": 11808,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "socks",
+      "lang": "pt",
+      "text": "meia",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/socks-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "table",
+      "lang": "ja",
+      "text": "つくえ",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/table-ja.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "table",
+      "lang": "pt",
+      "text": "mesa",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/table-pt.mp3",
+      "bytes": 11232,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "teacher",
+      "lang": "ja",
+      "text": "せんせい",
+      "voice": "ja-JP-NanamiNeural",
+      "rate": "-15%",
+      "path": "audio/teacher-ja.mp3",
+      "bytes": 11808,
+      "review_status": "generated-unreviewed"
+    },
+    {
+      "id": "teacher",
+      "lang": "pt",
+      "text": "professora",
+      "voice": "pt-BR-FranciscaNeural",
+      "rate": "-15%",
+      "path": "audio/teacher-pt.mp3",
+      "bytes": 11952,
+      "review_status": "generated-unreviewed"
+    }
+  ]
+}
