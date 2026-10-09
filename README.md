@@ -4,6 +4,12 @@
 
 [確認用サイト（本人限定）](https://kotoba-classroom-prototype.kagoya.chatgpt.site)
 
+## GitHub Pages
+
+公開先は https://kagoya.github.io/ejiten/ 。`.github/workflows/pages.yml` が `main` へのpushごとに `dist/` をGitHub Pagesへ配信する。手動実行にも対応。リポジトリの Settings → Pages → Source は「GitHub Actions」を選ぶ。
+
+ページ、画像、音声のパスは相対指定のため、`/ejiten/` 配下でも動作する。イラスト原稿や制作スクリプトはPagesへの配信対象に含めない。
+
 ## 操作
 
 - 「前の場面」「次の場面」、場面選択、画像付きの「目次」から全12場面に移動できる。
