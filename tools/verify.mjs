@@ -8,7 +8,7 @@ const errors=[],report={scenes:[],mobile:[]};
 function monitor(page){page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});}
 try{
   const page=await browser.newPage({viewport:{width:1440,height:1150}});monitor(page);
-  await page.goto('http://127.0.0.1:8765/');await page.locator('.word-item').last().waitFor();
+  await page.goto('http://127.0.0.1:8765/#scene-03');await page.locator('.word-item').last().waitFor();
   const scenes=await page.evaluate(()=>window.SCENES);
   if(scenes.length!==12)throw new Error(`Expected 12 scenes; found ${scenes.length}`);
   if(scenes.reduce((n,s)=>n+s.words.length,0)!==137)throw new Error('Expected 137 entries');
@@ -44,7 +44,7 @@ try{
       if(buffer.duration<.3||peak<.01)throw new Error(`Silent/invalid ${word.audio[lang]}`);results.push({scene:scene.id,id:word.id,lang,duration:buffer.duration,peak});
     }}finally{await context.close();}return results;
   });
-  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});monitor(mobile);await mobile.goto('http://127.0.0.1:8765/');
+  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});monitor(mobile);await mobile.goto('http://127.0.0.1:8765/#scene-03');
   for(const scene of scenes){
     await mobile.selectOption('#scene-select',scene.id);await mobile.waitForFunction(title=>document.getElementById('scene-title-ja').textContent===title,scene.titleJa);
     const word=scene.words.find(w=>w.kind==='phrase')||scene.words.at(-1);await mobile.locator(`.word-item[data-word="${word.id}"]`).tap();await mobile.waitForFunction(()=>document.getElementById('audio').currentTime>0);
