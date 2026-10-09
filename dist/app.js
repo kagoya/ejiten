@@ -59,7 +59,7 @@
     if(options.children.length){$('scene-select').append(options);section.append(grid);$('contents-list').append(section);}
   }
   $('scene-select').onchange=e=>goScene(e.target.value);$('previous-scene').onclick=()=>goScene(scenes[scenes.indexOf(current)-1].id);$('next-scene').onclick=()=>goScene(scenes[scenes.indexOf(current)+1].id);window.addEventListener('hashchange',readHash);
-  $('cover-contents').onclick=()=>$('contents-dialog').showModal();
+  for(const id of ['cover-contents','cover-image-contents'])$(id).onclick=()=>$('contents-dialog').showModal();
   audio.addEventListener('ended',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent='もう一度聴くときは、再生ボタンを押してください。';});
   audio.addEventListener('error',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent='音声を読み込めませんでした。通信状態を確認して再生してください。';});
   function setLanguage(lang){language=lang;$('choose-ja').setAttribute('aria-pressed',String(lang==='ja'));$('choose-pt').setAttribute('aria-pressed',String(lang==='pt'));stop();$('audio-status').textContent=`絵をタップすると${lang==='ja'?'日本語':'ポルトガル語'}が流れます。`;}

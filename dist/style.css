@@ -15,3 +15,4 @@ h1 .title-ja{font-size:inherit;font-weight:inherit;color:inherit;letter-spacing:
 /* Digital edition title and attribution */
 .topbar{flex-wrap:wrap;gap:14px}.brand{min-width:0}.brand-mark{flex-shrink:0}.brand-title{font-size:15px;line-height:1.6}.header-actions{flex-shrink:0;margin-left:auto}.digital-credit{margin-bottom:20px}@media(max-width:760px){.brand-title{font-size:12px}.topbar>.cover-link{margin-left:auto}.digital-credit{grid-template-columns:100px minmax(0,1fr)}}
 .brand-flags{display:block;width:68px;height:44px;flex-shrink:0}@media(max-width:760px){.brand-flags{width:56px;height:36px}.brand{gap:10px}}
+.cover-image-button{display:block;width:100%;padding:0;border:0;border-radius:10px;background:transparent;cursor:pointer}.cover-image-button:hover svg{border-color:var(--green)}
