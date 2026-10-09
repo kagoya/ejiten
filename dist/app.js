@@ -25,6 +25,7 @@
     }catch(error){if(token===playToken){$('sound-wave').classList.remove('playing');$('audio-status').textContent='音声を再生できませんでした。再生ボタンでもう一度お試しください。';}}
   }
   function renderScene(scene){
+    $('cover-page').hidden=true;$('scene-page').hidden=false;document.querySelector('.chapter').hidden=false;
     stop();current=scene;words=scene.words;groups.clear();buttons.clear();$('hotspots').replaceChildren();$('word-list').replaceChildren();
     const season=seasons[scene.season],index=scenes.indexOf(scene);
     document.title=`${scene.titleJa} | ことばの絵じてん`;$('scene-title-ja').textContent=scene.titleJa;$('scene-title-pt').textContent=scene.titlePt;$('season-label').textContent=scene.seasonLabel||`${season.ja} · ${season.pt}`;document.querySelector('.spring-dot').style.background=season.color;
@@ -47,8 +48,8 @@
     select(words[0],false,false);setZoom(1);updateProgress();$('scene-announcement').textContent=`${index+1}番目の場面、${scene.titleJa}を表示しました。`;
     for(const button of document.querySelectorAll('.scene-card'))button.setAttribute('aria-current',button.dataset.scene===scene.id?'page':'false');
   }
-  function goScene(id){const scene=scenes.find(s=>s.id===id);if(!scene||current?.id===id)return;renderScene(scene);location.hash=`scene-${id}`;}
-  function readHash(){const match=location.hash.match(/^#scene-(\d\d)$/);const scene=scenes.find(s=>s.id===match?.[1])||scenes[0];if(current?.id!==scene.id)renderScene(scene);}
+  function goScene(id){const scene=scenes.find(s=>s.id===id);if(!scene)return;if(current?.id!==id||$('scene-page').hidden)renderScene(scene);location.hash=`scene-${id}`;}
+  function readHash(){const match=location.hash.match(/^#scene-(\d\d)$/);const scene=scenes.find(s=>s.id===match?.[1]);if(scene){if(current?.id!==scene.id||$('scene-page').hidden)renderScene(scene);}else{stop();$('cover-page').hidden=false;$('scene-page').hidden=true;document.querySelector('.chapter').hidden=true;document.title='表紙 | ことばの絵じてん';} }
   for(const [key,season] of Object.entries(seasons)){
     const options=document.createElement('optgroup');options.label=`${season.ja} · ${season.pt}`;const section=document.createElement('section');section.className='contents-season';const title=document.createElement('h3');title.textContent=`${season.ja} · ${season.pt}`;section.append(title);const grid=document.createElement('div');grid.className='scene-grid';
     for(const scene of scenes.filter(s=>s.season===key)){
@@ -58,6 +59,7 @@
     if(options.children.length){$('scene-select').append(options);section.append(grid);$('contents-list').append(section);}
   }
   $('scene-select').onchange=e=>goScene(e.target.value);$('previous-scene').onclick=()=>goScene(scenes[scenes.indexOf(current)-1].id);$('next-scene').onclick=()=>goScene(scenes[scenes.indexOf(current)+1].id);window.addEventListener('hashchange',readHash);
+  $('cover-contents').onclick=()=>$('contents-dialog').showModal();
   audio.addEventListener('ended',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent='もう一度聴くときは、再生ボタンを押してください。';});
   audio.addEventListener('error',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent='音声を読み込めませんでした。通信状態を確認して再生してください。';});
   function setLanguage(lang){language=lang;$('choose-ja').setAttribute('aria-pressed',String(lang==='ja'));$('choose-pt').setAttribute('aria-pressed',String(lang==='pt'));stop();$('audio-status').textContent=`絵をタップすると${lang==='ja'?'日本語':'ポルトガル語'}が流れます。`;}

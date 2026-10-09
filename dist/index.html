@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f7f5ed">
   <meta name="description" content="四季の12場面の絵をタップして、日本語とブラジルのポルトガル語を聞いてみよう。">
-  <title>春の教室 | ことばの絵じてん</title>
+  <title>表紙 | ことばの絵じてん</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="scenes.js" defer></script>
@@ -19,10 +19,15 @@
   <symbol id="reset" viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 0 6M4 3v6h6"/></symbol>
 </defs></svg>
 <header class="topbar">
-  <a class="brand" href="./" aria-label="ことばの絵じてん ホーム"><span class="brand-mark">こ</span><span>ことばの絵じてん<small>日本語 × Português</small></span></a>
-  <div class="header-actions"><button id="show-contents">目次 <span aria-hidden="true">▦</span></button><span class="chapter"><span id="chapter-number">01 / 12</span></span></div>
+  <a class="brand" href="#cover" aria-label="ことばの絵じてん 表紙"><span class="brand-mark">こ</span><span>ことばの絵じてん<small>日本語 × Português</small></span></a>
+  <div class="header-actions"><a class="cover-link" href="#cover">表紙</a><button id="show-contents">目次 <span aria-hidden="true">▦</span></button><span class="chapter"><span id="chapter-number">01 / 12</span></span></div>
 </header>
-<main>
+<main id="cover-page" hidden>
+  <div class="cover-intro"><p class="eyebrow">DICIONÁRIO ILUSTRATIVO EM PORTUGUÊS E JAPONÊS</p><h1>ぽるとがるご にほんご<br>ことばえじてん</h1><p>元の絵辞典の見開きの表紙です。四季の12場面を、絵と音声で楽しめます。</p></div>
+  <div class="cover-actions"><a class="cover-start" href="#scene-03">絵辞典をひらく →</a><button id="cover-contents">目次から選ぶ</button></div>
+  <figure class="cover-art"><a href="assets/cover-original.png" target="_blank" rel="noopener" aria-label="元の表紙を原寸で開く"><img src="assets/cover-original.png" width="1200" height="844" alt="ぽるとがるご にほんご ことばえじてんの見開きの表紙。ブラジルと日本の地図、四季のイラスト、制作情報が描かれています。"></a><figcaption>元の手描きの表紙をそのまま掲載しています。絵を押すと原寸で確認できます。</figcaption></figure>
+</main>
+<main id="scene-page">
   <div class="intro">
     <div><p class="eyebrow"><span class="spring-dot"></span> <span id="season-label">はる · Primavera</span></p><h1><span id="scene-title-ja" class="title-ja">春の教室</span><span id="scene-title-pt" lang="pt-BR">A primavera na sala de aula</span></h1><p class="lead">絵の中のものをタップして、ことばを聞いてみよう。</p></div>
     <div class="language-choice"><span id="language-label">絵をタップしたときに聴くことば</span><div class="segmented" role="group" aria-labelledby="language-label"><button id="choose-ja" aria-pressed="true">日本語</button><button id="choose-pt" aria-pressed="false" lang="pt-BR">Português</button></div></div>
