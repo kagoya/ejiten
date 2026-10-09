@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f7f5ed">
-  <meta name="description" content="春の教室の絵をタップして、日本語とブラジルのポルトガル語を聞いてみよう。">
+  <meta name="description" content="四季の12場面の絵をタップして、日本語とブラジルのポルトガル語を聞いてみよう。">
   <title>春の教室 | ことばの絵じてん</title>
   <link rel="stylesheet" href="style.css">
-  <script src="words.js" defer></script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="scenes.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -19,19 +20,21 @@
 </defs></svg>
 <header class="topbar">
   <a class="brand" href="./" aria-label="ことばの絵じてん ホーム"><span class="brand-mark">こ</span><span>ことばの絵じてん<small>日本語 × Português</small></span></a>
-  <span class="chapter">春のことば <span>01</span></span>
+  <div class="header-actions"><button id="show-contents">目次 <span aria-hidden="true">▦</span></button><span class="chapter"><span id="chapter-number">01 / 12</span></span></div>
 </header>
 <main>
   <div class="intro">
-    <div><p class="eyebrow"><span class="spring-dot"></span> はる · Primavera</p><h1>春の教室<span lang="pt-BR">A primavera na sala de aula</span></h1><p class="lead">絵の中のものをタップして、ことばを聞いてみよう。</p></div>
+    <div><p class="eyebrow"><span class="spring-dot"></span> <span id="season-label">はる · Primavera</span></p><h1><span id="scene-title-ja" class="title-ja">春の教室</span><span id="scene-title-pt" lang="pt-BR">A primavera na sala de aula</span></h1><p class="lead">絵の中のものをタップして、ことばを聞いてみよう。</p></div>
     <div class="language-choice"><span id="language-label">絵をタップしたときに聴くことば</span><div class="segmented" role="group" aria-labelledby="language-label"><button id="choose-ja" aria-pressed="true">日本語</button><button id="choose-pt" aria-pressed="false" lang="pt-BR">Português</button></div></div>
   </div>
+  <nav class="scene-navigation" aria-label="場面の移動"><button id="previous-scene">← 前の場面</button><label><span class="sr-only">場面を選ぶ</span><select id="scene-select"></select></label><button id="next-scene">次の場面 →</button></nav>
+  <p class="sr-only" id="scene-announcement" role="status"></p>
   <div class="workspace">
-    <section class="picture-panel" aria-label="教室の絵と再生">
+    <section class="picture-panel" aria-label="場面の絵と再生">
       <div class="picture-toolbar"><label class="number-toggle"><input type="checkbox" id="show-numbers" checked> 番号を表示</label><div class="zoom-controls"><button id="zoom-out" aria-label="絵を縮小"><svg><use href="#minus"/></svg></button><output id="zoom-label" aria-live="polite">100%</output><button id="zoom-in" aria-label="絵を拡大"><svg><use href="#plus"/></svg></button><button id="zoom-reset" aria-label="絵を全体表示"><svg><use href="#reset"/></svg></button></div></div>
       <div class="scene-viewport" id="scene-viewport"><div class="scene-canvas" id="scene-canvas">
         <svg id="scene" viewBox="0 0 1000 707" aria-label="春の教室。いす、かばん、はさみなどを選べます。">
-          <image href="assets/classroom-generated.webp" width="1000" height="707" preserveAspectRatio="none"/>
+          <image id="scene-image" href="assets/classroom-generated.webp" width="1000" height="707" preserveAspectRatio="none"/>
           <g id="hotspots"></g>
         </svg>
       </div></div>
@@ -42,11 +45,12 @@
         <div class="player-bottom"><p id="audio-status" role="status">再生ボタンでことばを聴けます。</p><button id="slow" aria-pressed="false">ゆっくり聴く</button></div>
       </div>
     </section>
-    <aside class="vocabulary" aria-labelledby="vocabulary-title"><div class="list-heading"><div><p class="eyebrow">PALAVRAS</p><h2 id="vocabulary-title">教室のことば</h2></div><span class="word-count">11語</span></div><p class="list-help">選ぶと絵の場所が光り、音声が流れます。</p><div id="word-list" class="word-list"></div><div class="discovery"><span>聴いたことば</span><strong id="discovered">0 / 11</strong><div class="progress-track"><div id="progress-fill"></div></div></div></aside>
+    <aside class="vocabulary" aria-labelledby="vocabulary-title"><div class="list-heading"><div><p class="eyebrow">PALAVRAS</p><h2 id="vocabulary-title">教室のことば</h2></div><span class="word-count" id="word-count">11語</span></div><p class="list-help">選ぶと絵の場所が光り、音声が流れます。</p><div id="word-list" class="word-list"></div><div class="discovery"><span>聴いたことば</span><strong id="discovered">0 / 11</strong><div class="progress-track"><div id="progress-fill"></div></div></div></aside>
   </div>
   <footer><p>絵を見て、ことばを聴いて、もう一度。</p><span>日本語・ポルトガル語とも合成音声を使用しています。</span></footer>
 </main>
-<dialog id="original-dialog"><div class="dialog-heading"><h2>もとになった手描きの絵</h2><button id="close-original" aria-label="元の絵を閉じる">閉じる ×</button></div><img src="assets/classroom-original.png" alt="元の春の教室の絵。日本語とポルトガル語の単語が記載されています。"><p>構図を参考に、文字を別表示にした新しいイラストを作りました。</p></dialog>
+<dialog id="original-dialog"><div class="dialog-heading"><h2>もとになった手描きの絵</h2><button id="close-original" aria-label="元の絵を閉じる">閉じる ×</button></div><img id="original-image" src="assets/classroom-original.png" alt="元の春の教室の絵。日本語とポルトガル語の単語が記載されています。"><p>構図を参考に、文字を別表示にした新しいイラストを作りました。</p></dialog>
+<dialog id="contents-dialog" aria-labelledby="contents-title"><div class="dialog-heading"><div><p class="eyebrow">CENAS</p><h2 id="contents-title">季節と場面を選ぼう</h2></div><button id="close-contents" aria-label="目次を閉じる">閉じる ×</button></div><div id="contents-list"></div></dialog>
 <audio id="audio" preload="none"></audio>
 </body>
 </html>

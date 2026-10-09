@@ -1,0 +1,192 @@
+{
+  "id": "11",
+  "season": "autumn",
+  "titleJa": "秋のピクニック",
+  "titlePt": "Um piquenique no outono",
+  "listTitle": "ぴくにっくのことば",
+  "image": "assets/scene-11-generated.webp",
+  "original": "assets/scene-11-original.png",
+  "words": [
+    {
+      "id": "miti",
+      "ja": "みち",
+      "pt": "caminho",
+      "rect": [
+        644,
+        148,
+        112,
+        143
+      ],
+      "marker": [
+        716,
+        188
+      ]
+    },
+    {
+      "id": "pikunikku",
+      "ja": "ぴくにっく",
+      "pt": "piquenique",
+      "rect": [
+        297,
+        377,
+        289,
+        174
+      ],
+      "marker": [
+        405,
+        447
+      ]
+    },
+    {
+      "id": "risu",
+      "ja": "りす",
+      "pt": "esquilo",
+      "rect": [
+        864,
+        528,
+        134,
+        96
+      ],
+      "marker": [
+        933,
+        579
+      ]
+    },
+    {
+      "id": "tokei",
+      "ja": "とけい",
+      "pt": "relógio",
+      "rect": [
+        588,
+        453,
+        61,
+        55
+      ],
+      "marker": [
+        615,
+        482
+      ]
+    },
+    {
+      "id": "okome",
+      "ja": "おこめ",
+      "pt": "arroz",
+      "rect": [
+        746,
+        159,
+        239,
+        137
+      ],
+      "marker": [
+        867,
+        243
+      ]
+    },
+    {
+      "id": "inekari",
+      "ja": "いねかり",
+      "pt": "colheita de arroz",
+      "rect": [
+        477,
+        190,
+        104,
+        96
+      ],
+      "marker": [
+        520,
+        235
+      ]
+    },
+    {
+      "id": "donguri",
+      "ja": "どんぐり",
+      "pt": "bolota",
+      "rect": [
+        759,
+        603,
+        91,
+        70
+      ],
+      "marker": [
+        806,
+        637
+      ]
+    },
+    {
+      "id": "kinoko",
+      "ja": "きのこ",
+      "pt": "cogumelo",
+      "rect": [
+        45,
+        587,
+        105,
+        72
+      ],
+      "marker": [
+        76,
+        612
+      ]
+    },
+    {
+      "id": "ryukkusakku",
+      "ja": "りゅっくさっく",
+      "pt": "mochila",
+      "rect": [
+        202,
+        524,
+        95,
+        93
+      ],
+      "marker": [
+        255,
+        565
+      ]
+    },
+    {
+      "id": "suitou",
+      "ja": "すいとう",
+      "pt": "garrafa térmica",
+      "rect": [
+        574,
+        548,
+        28,
+        68
+      ],
+      "marker": [
+        588,
+        582
+      ]
+    },
+    {
+      "id": "obentou",
+      "ja": "おべんとう",
+      "pt": "marmita",
+      "rect": [
+        442,
+        542,
+        105,
+        65
+      ],
+      "marker": [
+        494,
+        570
+      ]
+    },
+    {
+      "id": "yamahairoduki",
+      "ja": "やまは いろづき、おこめが みのります。",
+      "pt": "As montanhas ganham as cores do outono, e o arroz amadurece.",
+      "rect": [
+        460,
+        23,
+        275,
+        88
+      ],
+      "marker": [
+        591,
+        66
+      ],
+      "kind": "phrase"
+    }
+  ]
+}

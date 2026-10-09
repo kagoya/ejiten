@@ -1,0 +1,192 @@
+{
+  "season": "spring",
+  "titleJa": "春の田んぼ",
+  "titlePt": "O campo na primavera",
+  "listTitle": "春の田んぼのことば",
+  "id": "05",
+  "image": "assets/scene-05-generated.webp",
+  "original": "assets/scene-05-original.png",
+  "words": [
+    {
+      "id": "taue",
+      "ja": "たうえ",
+      "pt": "plantio de arroz",
+      "rect": [
+        595,
+        220,
+        115,
+        135
+      ],
+      "marker": [
+        660,
+        295
+      ]
+    },
+    {
+      "id": "tanbo",
+      "ja": "たんぼ",
+      "pt": "arrozal",
+      "rect": [
+        230,
+        195,
+        300,
+        180
+      ],
+      "marker": [
+        380,
+        270
+      ]
+    },
+    {
+      "id": "yama",
+      "ja": "やま",
+      "pt": "montanha",
+      "rect": [
+        340,
+        0,
+        640,
+        175
+      ],
+      "marker": [
+        575,
+        100
+      ]
+    },
+    {
+      "id": "choucho",
+      "ja": "ちょうちょ",
+      "pt": "borboleta",
+      "rect": [
+        790,
+        435,
+        80,
+        90
+      ],
+      "marker": [
+        830,
+        480
+      ]
+    },
+    {
+      "id": "kaeru",
+      "ja": "かえる",
+      "pt": "sapo",
+      "rect": [
+        890,
+        340,
+        100,
+        80
+      ],
+      "marker": [
+        945,
+        375
+      ]
+    },
+    {
+      "id": "kuro-ba-",
+      "ja": "くろーばー",
+      "pt": "trevo",
+      "rect": [
+        590,
+        510,
+        290,
+        185
+      ],
+      "marker": [
+        745,
+        625
+      ]
+    },
+    {
+      "id": "inu",
+      "ja": "いぬ",
+      "pt": "cachorro",
+      "rect": [
+        300,
+        530,
+        160,
+        130
+      ],
+      "marker": [
+        385,
+        585
+      ]
+    },
+    {
+      "id": "tukusi",
+      "ja": "つくし",
+      "pt": "cavalinha",
+      "rect": [
+        885,
+        470,
+        100,
+        115
+      ],
+      "marker": [
+        935,
+        535
+      ]
+    },
+    {
+      "id": "hanabira",
+      "ja": "はなびら",
+      "pt": "pétala",
+      "rect": [
+        35,
+        540,
+        95,
+        115
+      ],
+      "marker": [
+        75,
+        605
+      ]
+    },
+    {
+      "id": "kawa",
+      "ja": "かわ",
+      "pt": "rio",
+      "rect": [
+        240,
+        398,
+        380,
+        43
+      ],
+      "marker": [
+        465,
+        420
+      ]
+    },
+    {
+      "id": "kusa",
+      "ja": "くさ",
+      "pt": "grama",
+      "rect": [
+        210,
+        515,
+        100,
+        65
+      ],
+      "marker": [
+        265,
+        550
+      ]
+    },
+    {
+      "id": "sakuragasaki",
+      "ja": "さくらが　さき、ちょうちょが　そらを　まいます。",
+      "pt": "As cerejeiras florescem, e as borboletas voam pelo céu.",
+      "rect": [
+        855,
+        0,
+        140,
+        40
+      ],
+      "marker": [
+        940,
+        20
+      ],
+      "kind": "phrase"
+    }
+  ]
+}

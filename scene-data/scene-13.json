@@ -1,0 +1,176 @@
+{
+  "id": "13",
+  "season": "winter",
+  "titleJa": "冬の雪遊び",
+  "titlePt": "Brincadeiras na neve",
+  "listTitle": "雪遊びのことば",
+  "image": "assets/scene-13-generated.webp",
+  "original": "assets/scene-13-original.png",
+  "words": [
+    {
+      "id": "yukidaruma",
+      "ja": "雪だるま",
+      "pt": "boneco de neve",
+      "rect": [
+        350,
+        282,
+        122,
+        193
+      ],
+      "marker": [
+        414,
+        363
+      ]
+    },
+    {
+      "id": "yuki",
+      "ja": "雪",
+      "pt": "neve",
+      "rect": [
+        674,
+        550,
+        84,
+        59
+      ],
+      "marker": [
+        716,
+        579
+      ]
+    },
+    {
+      "id": "kamakura",
+      "ja": "かまくら",
+      "pt": "iglu",
+      "rect": [
+        49,
+        352,
+        231,
+        158
+      ],
+      "marker": [
+        148,
+        431
+      ]
+    },
+    {
+      "id": "sori",
+      "ja": "そり",
+      "pt": "trenó",
+      "rect": [
+        750,
+        220,
+        123,
+        88
+      ],
+      "marker": [
+        797,
+        285
+      ]
+    },
+    {
+      "id": "tebukuro",
+      "ja": "手袋",
+      "pt": "luvas",
+      "rect": [
+        514,
+        565,
+        27,
+        37
+      ],
+      "marker": [
+        526,
+        583
+      ]
+    },
+    {
+      "id": "sika",
+      "ja": "鹿",
+      "pt": "veado",
+      "rect": [
+        124,
+        9,
+        202,
+        157
+      ],
+      "marker": [
+        192,
+        108
+      ]
+    },
+    {
+      "id": "usagi",
+      "ja": "うさぎ",
+      "pt": "coelho",
+      "rect": [
+        881,
+        242,
+        91,
+        99
+      ],
+      "marker": [
+        920,
+        288
+      ]
+    },
+    {
+      "id": "yukigassen",
+      "ja": "雪合戦",
+      "pt": "guerra de bolas de neve",
+      "rect": [
+        501,
+        281,
+        329,
+        259
+      ],
+      "marker": [
+        579,
+        348
+      ]
+    },
+    {
+      "id": "fukurou",
+      "ja": "ふくろう",
+      "pt": "coruja",
+      "rect": [
+        47,
+        218,
+        81,
+        81
+      ],
+      "marker": [
+        95,
+        265
+      ]
+    },
+    {
+      "id": "mafura-",
+      "ja": "マフラー",
+      "pt": "cachecol",
+      "rect": [
+        178,
+        190,
+        60,
+        54
+      ],
+      "marker": [
+        204,
+        218
+      ]
+    },
+    {
+      "id": "ki",
+      "ja": "木",
+      "pt": "árvore",
+      "rect": [
+        344,
+        0,
+        565,
+        261
+      ],
+      "marker": [
+        614,
+        139
+      ]
+    }
+  ]
+}

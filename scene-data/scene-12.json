@@ -1,0 +1,176 @@
+{
+  "id": "12",
+  "season": "winter",
+  "titleJa": "冬の部屋",
+  "titlePt": "O inverno na sala",
+  "listTitle": "冬の部屋のことば",
+  "image": "assets/scene-12-generated.webp",
+  "original": "assets/scene-12-original.png",
+  "words": [
+    {
+      "id": "kurisumasuturi-",
+      "ja": "クリスマスツリー",
+      "pt": "árvore de Natal",
+      "rect": [
+        188,
+        12,
+        209,
+        287
+      ],
+      "marker": [
+        286,
+        146
+      ]
+    },
+    {
+      "id": "mikan",
+      "ja": "みかん",
+      "pt": "mexerica",
+      "rect": [
+        323,
+        365,
+        93,
+        53
+      ],
+      "marker": [
+        368,
+        394
+      ]
+    },
+    {
+      "id": "karenda-",
+      "ja": "カレンダー",
+      "pt": "calendário",
+      "rect": [
+        86,
+        43,
+        99,
+        166
+      ],
+      "marker": [
+        135,
+        139
+      ]
+    },
+    {
+      "id": "terebi",
+      "ja": "テレビ",
+      "pt": "televisão",
+      "rect": [
+        514,
+        111,
+        213,
+        184
+      ],
+      "marker": [
+        616,
+        210
+      ]
+    },
+    {
+      "id": "ka-ten",
+      "ja": "カーテン",
+      "pt": "cortina",
+      "rect": [
+        738,
+        10,
+        100,
+        253
+      ],
+      "marker": [
+        779,
+        175
+      ]
+    },
+    {
+      "id": "suto-bu",
+      "ja": "ストーブ",
+      "pt": "aquecedor",
+      "rect": [
+        802,
+        310,
+        153,
+        142
+      ],
+      "marker": [
+        876,
+        374
+      ]
+    },
+    {
+      "id": "sugoroku",
+      "ja": "すごろく",
+      "pt": "jogo de tabuleiro",
+      "rect": [
+        712,
+        571,
+        288,
+        136
+      ],
+      "marker": [
+        872,
+        645
+      ]
+    },
+    {
+      "id": "kotatu",
+      "ja": "こたつ",
+      "pt": "mesa com aquecedor",
+      "rect": [
+        54,
+        340,
+        598,
+        271
+      ],
+      "marker": [
+        332,
+        499
+      ]
+    },
+    {
+      "id": "yakan",
+      "ja": "やかん",
+      "pt": "chaleira",
+      "rect": [
+        843,
+        276,
+        80,
+        57
+      ],
+      "marker": [
+        882,
+        305
+      ]
+    },
+    {
+      "id": "e",
+      "ja": "絵",
+      "pt": "quadro",
+      "rect": [
+        550,
+        18,
+        106,
+        92
+      ],
+      "marker": [
+        604,
+        58
+      ]
+    },
+    {
+      "id": "purezento",
+      "ja": "プレゼント",
+      "pt": "presente",
+      "rect": [
+        183,
+        243,
+        87,
+        80
+      ],
+      "marker": [
+        222,
+        283
+      ]
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": "14",
+  "season": "winter",
+  "seasonLabel": "日本の冬・ブラジルの夏 · Inverno no Japão / Verão no Brasil",
+  "titleJa": "ブラジルのクリスマス",
+  "titlePt": "Natal no Brasil",
+  "listTitle": "ブラジルのクリスマスのことば",
+  "image": "assets/scene-14-generated.webp",
+  "original": "assets/scene-14-original.png",
+  "words": [
+    {
+      "id": "painappuru",
+      "ja": "パイナップル",
+      "pt": "abacaxi",
+      "rect": [
+        863,
+        424,
+        85,
+        94
+      ],
+      "marker": [
+        892,
+        480
+      ]
+    },
+    {
+      "id": "meron",
+      "ja": "メロン",
+      "pt": "melão",
+      "rect": [
+        764,
+        442,
+        91,
+        57
+      ],
+      "marker": [
+        808,
+        471
+      ]
+    },
+    {
+      "id": "oisii",
+      "ja": "おいしい",
+      "pt": "gostoso",
+      "rect": [
+        634,
+        326,
+        96,
+        87
+      ],
+      "marker": [
+        675,
+        356
+      ]
+    },
+    {
+      "id": "santakuro-su",
+      "ja": "サンタクロース",
+      "pt": "Papai Noel",
+      "rect": [
+        252,
+        184,
+        214,
+        278
+      ],
+      "marker": [
+        357,
+        304
+      ]
+    },
+    {
+      "id": "kurisumasupurezento",
+      "ja": "クリスマスプレゼント",
+      "pt": "presente de Natal",
+      "rect": [
+        406,
+        601,
+        91,
+        76
+      ],
+      "marker": [
+        450,
+        646
+      ]
+    },
+    {
+      "id": "sa-fubo-do",
+      "ja": "サーフボード",
+      "pt": "prancha de surfe",
+      "rect": [
+        161,
+        343,
+        369,
+        166
+      ],
+      "marker": [
+        329,
+        430
+      ]
+    },
+    {
+      "id": "paneto-ne",
+      "ja": "パネトーネ",
+      "pt": "panetone",
+      "rect": [
+        827,
+        382,
+        89,
+        62
+      ],
+      "marker": [
+        874,
+        411
+      ]
+    },
+    {
+      "id": "syurasuko",
+      "ja": "シュラスコ",
+      "pt": "churrasco",
+      "rect": [
+        773,
+        301,
+        109,
+        86
+      ],
+      "marker": [
+        823,
+        355
+      ]
+    },
+    {
+      "id": "orenji",
+      "ja": "オレンジ",
+      "pt": "laranja",
+      "rect": [
+        777,
+        491,
+        81,
+        31
+      ],
+      "marker": [
+        795,
+        506
+      ]
+    },
+    {
+      "id": "syaberu",
+      "ja": "シャベル",
+      "pt": "pá",
+      "rect": [
+        670,
+        642,
+        72,
+        32
+      ],
+      "marker": [
+        705,
+        660
+      ]
+    },
+    {
+      "id": "ju-su",
+      "ja": "ジュース",
+      "pt": "suco",
+      "rect": [
+        710,
+        456,
+        34,
+        66
+      ],
+      "marker": [
+        729,
+        495
+      ]
+    },
+    {
+      "id": "kokki",
+      "ja": "国旗",
+      "pt": "bandeira",
+      "rect": [
+        573,
+        19,
+        93,
+        84
+      ],
+      "marker": [
+        617,
+        55
+      ]
+    },
+    {
+      "id": "nihonnofuyu",
+      "ja": "日本の冬はブラジルの夏です。",
+      "pt": "O inverno no Japão corresponde ao verão no Brasil.",
+      "rect": [
+        137,
+        4,
+        340,
+        159
+      ],
+      "marker": [
+        291,
+        85
+      ],
+      "kind": "phrase",
+      "ttsJa": "にほんのふゆは、ぶらじるのなつです。"
+    }
+  ]
+}

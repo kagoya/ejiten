@@ -1,0 +1,231 @@
+{
+  "id": "03",
+  "season": "spring",
+  "titleJa": "春の教室",
+  "titlePt": "A primavera na sala de aula",
+  "listTitle": "教室のことば",
+  "image": "assets/classroom-generated.webp",
+  "original": "assets/classroom-original.png",
+  "words": [
+    {
+      "id": "chair",
+      "ja": "いす",
+      "pt": "cadeira",
+      "rect": [
+        218,
+        463,
+        94,
+        96
+      ],
+      "marker": [
+        265,
+        526
+      ],
+      "ttsJa": "いす",
+      "audio": {
+        "ja": "audio/chair-ja.mp3",
+        "pt": "audio/chair-pt.mp3"
+      }
+    },
+    {
+      "id": "bag",
+      "ja": "かばん",
+      "pt": "bolsa",
+      "rect": [
+        356,
+        271,
+        63,
+        92
+      ],
+      "marker": [
+        387,
+        328
+      ],
+      "ttsJa": "かばん",
+      "audio": {
+        "ja": "audio/bag-ja.mp3",
+        "pt": "audio/bag-pt.mp3"
+      }
+    },
+    {
+      "id": "scissors",
+      "ja": "はさみ",
+      "pt": "tesoura",
+      "rect": [
+        259,
+        397,
+        45,
+        41
+      ],
+      "marker": [
+        283,
+        424
+      ],
+      "ttsJa": "はさみ",
+      "audio": {
+        "ja": "audio/scissors-ja.mp3",
+        "pt": "audio/scissors-pt.mp3"
+      }
+    },
+    {
+      "id": "hat",
+      "ja": "ぼうし",
+      "pt": "chapéu",
+      "rect": [
+        788,
+        269,
+        63,
+        45
+      ],
+      "marker": [
+        817,
+        293
+      ],
+      "ttsJa": "ぼうし",
+      "audio": {
+        "ja": "audio/hat-ja.mp3",
+        "pt": "audio/hat-pt.mp3"
+      }
+    },
+    {
+      "id": "table",
+      "ja": "つくえ",
+      "pt": "mesa",
+      "rect": [
+        420,
+        420,
+        326,
+        196
+      ],
+      "marker": [
+        558,
+        552
+      ],
+      "ttsJa": "つくえ",
+      "audio": {
+        "ja": "audio/table-ja.mp3",
+        "pt": "audio/table-pt.mp3"
+      }
+    },
+    {
+      "id": "crayons",
+      "ja": "くれよん",
+      "pt": "giz de cera",
+      "rect": [
+        632,
+        456,
+        69,
+        37
+      ],
+      "marker": [
+        673,
+        478
+      ],
+      "ttsJa": "クレヨン",
+      "audio": {
+        "ja": "audio/crayons-ja.mp3",
+        "pt": "audio/crayons-pt.mp3"
+      }
+    },
+    {
+      "id": "clothes",
+      "ja": "ふく",
+      "pt": "roupa",
+      "rect": [
+        682,
+        620,
+        93,
+        87
+      ],
+      "marker": [
+        728,
+        662
+      ],
+      "ttsJa": "ふく",
+      "audio": {
+        "ja": "audio/clothes-ja.mp3",
+        "pt": "audio/clothes-pt.mp3"
+      }
+    },
+    {
+      "id": "door",
+      "ja": "どあ",
+      "pt": "porta",
+      "rect": [
+        530,
+        0,
+        160,
+        282
+      ],
+      "marker": [
+        600,
+        151
+      ],
+      "ttsJa": "ドア",
+      "audio": {
+        "ja": "audio/door-ja.mp3",
+        "pt": "audio/door-pt.mp3"
+      }
+    },
+    {
+      "id": "shoes",
+      "ja": "くつ",
+      "pt": "sapato",
+      "rect": [
+        910,
+        432,
+        43,
+        37
+      ],
+      "marker": [
+        933,
+        452
+      ],
+      "ttsJa": "くつ",
+      "audio": {
+        "ja": "audio/shoes-ja.mp3",
+        "pt": "audio/shoes-pt.mp3"
+      }
+    },
+    {
+      "id": "socks",
+      "ja": "くつした",
+      "pt": "meia",
+      "rect": [
+        850,
+        416,
+        41,
+        33
+      ],
+      "marker": [
+        870,
+        433
+      ],
+      "ttsJa": "くつした",
+      "audio": {
+        "ja": "audio/socks-ja.mp3",
+        "pt": "audio/socks-pt.mp3"
+      }
+    },
+    {
+      "id": "teacher",
+      "ja": "せんせい",
+      "pt": "professora",
+      "rect": [
+        410,
+        30,
+        115,
+        226
+      ],
+      "marker": [
+        465,
+        152
+      ],
+      "ttsJa": "せんせい",
+      "audio": {
+        "ja": "audio/teacher-ja.mp3",
+        "pt": "audio/teacher-pt.mp3"
+      }
+    }
+  ]
+}
