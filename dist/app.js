@@ -28,7 +28,7 @@
     $('cover-page').hidden=true;$('scene-page').hidden=false;document.querySelector('.chapter').hidden=false;
     stop();current=scene;words=scene.words;groups.clear();buttons.clear();$('hotspots').replaceChildren();$('word-list').replaceChildren();
     const season=seasons[scene.season],index=scenes.indexOf(scene);
-    document.title=`${scene.titleJa} | ことばの絵じてん`;$('scene-title-ja').textContent=scene.titleJa;$('scene-title-pt').textContent=scene.titlePt;$('season-label').textContent=scene.seasonLabel||`${season.ja} · ${season.pt}`;document.querySelector('.spring-dot').style.background=season.color;
+    document.title=`${scene.titleJa} | ぽるとがるご にほんご ことばえじてん（デジタル版）`;$('scene-title-ja').textContent=scene.titleJa;$('scene-title-pt').textContent=scene.titlePt;$('season-label').textContent=scene.seasonLabel||`${season.ja} · ${season.pt}`;document.querySelector('.spring-dot').style.background=season.color;
     $('chapter-number').textContent=`${String(index+1).padStart(2,'0')} / ${scenes.length}`;$('vocabulary-title').textContent=scene.listTitle;$('word-count').textContent=`${words.length}項目`;
     $('scene-image').setAttribute('href',scene.image);$('scene').setAttribute('aria-label',`${scene.titleJa}。絵の対象を選ぶとことばを聴けます。`);$('original-image').src=scene.original;$('original-image').alt=`元の${scene.titleJa}の手描きの絵。`;
     $('scene-select').value=scene.id;$('previous-scene').disabled=index===0;$('next-scene').disabled=index===scenes.length-1;
@@ -49,7 +49,7 @@
     for(const button of document.querySelectorAll('.scene-card'))button.setAttribute('aria-current',button.dataset.scene===scene.id?'page':'false');
   }
   function goScene(id){const scene=scenes.find(s=>s.id===id);if(!scene)return;if(current?.id!==id||$('scene-page').hidden)renderScene(scene);location.hash=`scene-${id}`;}
-  function readHash(){const match=location.hash.match(/^#scene-(\d\d)$/);const scene=scenes.find(s=>s.id===match?.[1]);if(scene){if(current?.id!==scene.id||$('scene-page').hidden)renderScene(scene);}else{stop();$('cover-page').hidden=false;$('scene-page').hidden=true;document.querySelector('.chapter').hidden=true;document.title='表紙 | ことばの絵じてん';} }
+  function readHash(){const match=location.hash.match(/^#scene-(\d\d)$/);const scene=scenes.find(s=>s.id===match?.[1]);if(scene){if(current?.id!==scene.id||$('scene-page').hidden)renderScene(scene);}else{stop();$('cover-page').hidden=false;$('scene-page').hidden=true;document.querySelector('.chapter').hidden=true;document.title='ぽるとがるご にほんご ことばえじてん（デジタル版）';} }
   for(const [key,season] of Object.entries(seasons)){
     const options=document.createElement('optgroup');options.label=`${season.ja} · ${season.pt}`;const section=document.createElement('section');section.className='contents-season';const title=document.createElement('h3');title.textContent=`${season.ja} · ${season.pt}`;section.append(title);const grid=document.createElement('div');grid.className='scene-grid';
     for(const scene of scenes.filter(s=>s.season===key)){
