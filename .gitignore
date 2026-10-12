@@ -17,3 +17,5 @@
 /dist/audio/*
 !/dist/audio/*.mp3
 !/dist/voice-comparison.html
+!/dist/all-voice-comparison.html
+!/dist/audio/voicevox/
