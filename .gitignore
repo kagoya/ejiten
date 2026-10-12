@@ -16,3 +16,4 @@
 !/dist/audio/
 /dist/audio/*
 !/dist/audio/*.mp3
+!/dist/voice-comparison.html
