@@ -1,12 +1,15 @@
 (() => {
   'use strict';
-  const valid=['ja','pt','kids'], url=new URL(location.href);
+  const valid=['ja','pt','kids','kids-pt'], url=new URL(location.href);
   let saved='ja'; try{saved=localStorage.getItem('ejiten-view')||'ja';}catch{}
   let mode=valid.includes(url.searchParams.get('view'))?url.searchParams.get('view'):(valid.includes(saved)?saved:'ja');
-  const t=(ja,pt,kids=ja)=>mode==='pt'?pt:mode==='kids'?kids:ja;
-  window.EJITEN_VIEW={get mode(){return mode;},t};
+  const isSimple=()=>mode==='kids'||mode==='kids-pt';
+  const isPortuguese=()=>mode==='pt'||mode==='kids-pt';
+  const t=(ja,pt,kids=ja,kidsPt=pt)=>mode==='kids-pt'?kidsPt:mode==='pt'?pt:mode==='kids'?kids:ja;
+  window.EJITEN_VIEW={get mode(){return mode;},get simple(){return isSimple();},get portuguese(){return isPortuguese();},t};
   const bindings=[];
-  function bind(selector,pt,kids){for(const el of document.querySelectorAll(selector))bindings.push({el,ja:el.innerHTML,pt,kids});}
+  const simplePt={'.cover-link':'🏠','#show-contents':'▦','#cover-page .cover-intro h1':'Toque na imagem','#cover-page .cover-intro>p:last-child':'Toque para ouvir.','.cover-start':'▶ Brincar','#cover-contents':'▦ Escolher','.cover-art figcaption':'Toque aqui!','.lead':'Toque na imagem.','#language-label':'Ouvir em','#previous-scene':'←','#next-scene':'→','#slow':'Devagar','#contents-title':'Qual imagem?','#close-original,#close-contents':'×'};
+  function bind(selector,pt,kids){const kidsPt=simplePt[selector]??(kids?.includes('language-flag')?kids.replace('にほんご','Japonês'):pt);for(const el of document.querySelectorAll(selector))bindings.push({el,ja:el.innerHTML,pt,kids,kidsPt});}
   bind('.brand-title','Dicionário ilustrativo<br>Português e japonês (edição digital)<small>Português × 日本語</small>');
   bind('.cover-link','Capa','🏠');
   bind('#show-contents','Cenas ▦','▦');
@@ -54,14 +57,15 @@
   const ariaBindings=[];for(const el of document.querySelectorAll('[aria-label],[alt]'))for(const attr of ['aria-label','alt']){const ja=el.getAttribute(attr);if(aria[ja])ariaBindings.push({el,attr,ja,pt:aria[ja]});}
   function apply(){
     try{localStorage.setItem('ejiten-view',mode);}catch{}
-    document.documentElement.lang=mode==='pt'?'pt-BR':'ja';document.body.dataset.view=mode;
-    for(const b of bindings)b.el.innerHTML=t(b.ja,b.pt,b.kids??b.ja);
+    document.documentElement.lang=isPortuguese()?'pt-BR':'ja';document.body.dataset.view=mode;document.body.dataset.simple=String(isSimple());
+    for(const b of bindings)b.el.innerHTML=t(b.ja,b.pt,b.kids??b.ja,b.kidsPt??b.pt);
     for(const b of ariaBindings)b.el.setAttribute(b.attr,t(b.ja,b.pt));
     document.getElementById('view-select').value=mode;
     document.querySelector('.brand').setAttribute('aria-label',t('ぽるとがるご にほんご ことばえじてん（デジタル版） 表紙','Dicionário ilustrativo em português e japonês — capa','ひょうし'));
     for(const el of document.querySelectorAll('.cover-link'))el.setAttribute('aria-label',t('表紙','Capa','ひょうし'));
     document.getElementById('show-contents')?.setAttribute('aria-label',t('目次','Cenas','えをえらぶ'));
-    document.getElementById('kids-contents')?.setAttribute('aria-label','えをえらぶ');
+    document.getElementById('kids-contents')?.setAttribute('aria-label',t('えをえらぶ','Escolher uma imagem'));
+    const gallery=document.getElementById('kids-contents');if(gallery)gallery.textContent=t('▦ えをえらぶ','▦ Escolher');
     if(document.querySelector('.credits-page'))document.title=t('この絵辞典について・クレジット | ぽるとがるご にほんご ことばえじてん（デジタル版）','Créditos | Dicionário ilustrativo em português e japonês (edição digital)');
   }
   document.getElementById('view-select').addEventListener('change',e=>{

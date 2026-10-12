@@ -1,9 +1,10 @@
 (() => {
   'use strict';
   const scenes=window.SCENES, $=id=>document.getElementById(id), ns='http://www.w3.org/2000/svg';
-  const view=window.EJITEN_VIEW, t=view.t, isPt=()=>view.mode==='pt';
+  const view=window.EJITEN_VIEW, t=view.t, isPt=()=>view.portuguese;
   const kidTitles=['はるの きょうしつ','はるの みち','はるの たんぼ','なつの おへや','なつの プール','なつの うみ','あきの おみせ','あきの こうえん','あきの ピクニック','ふゆの おへや','ゆきあそび','クリスマス'];
-  const sceneName=scene=>view.mode==='kids'?kidTitles[scenes.indexOf(scene)]:isPt()?scene.titlePt:scene.titleJa;
+  const kidPtTitles=['Sala de aula','Rua','Campo','Quarto','Piscina','Praia','Loja','Parque','Piquenique','Quarto','Neve','Natal'];
+  const sceneName=scene=>view.simple?(isPt()?kidPtTitles:kidTitles)[scenes.indexOf(scene)]:isPt()?scene.titlePt:scene.titleJa;
   const title=()=>t('ぽるとがるご にほんご ことばえじてん（デジタル版）','Dicionário ilustrativo em português e japonês (edição digital)');
   const seasons={spring:{ja:'はる',pt:'Primavera',color:'#e5a69c'},summer:{ja:'なつ',pt:'Verão',color:'#e5be61'},autumn:{ja:'あき',pt:'Outono',color:'#d79b62'},winter:{ja:'ふゆ',pt:'Inverno',color:'#87aeba'}};
   let current, words=[], selected, language=isPt()?'pt':'ja', zoom=1, slow=false, playToken=0;
@@ -16,17 +17,17 @@
     stop();selected=word;
     const index=words.indexOf(word);$('selected-number').textContent=String(index+1).padStart(2,'0');$('selected-ja').textContent=isPt()?word.pt:word.ja;$('selected-ja').lang=isPt()?'pt-BR':'ja';$('selected-pt').textContent=isPt()?word.ja:word.pt;$('selected-pt').lang=isPt()?'ja':'pt-BR';$('word-player').classList.toggle('is-phrase',word.kind==='phrase');
     for(const w of words){groups.get(w.id).classList.toggle('is-selected',w.id===word.id);groups.get(w.id).setAttribute('aria-pressed',String(w.id===word.id));buttons.get(w.id).setAttribute('aria-pressed',String(w.id===word.id));}
-    updateMarkers();$('audio-status').textContent=t('再生ボタンでことばを聴けます。','Use os botões para ouvir a palavra.','もういちど きけるよ');
+    updateMarkers();$('audio-status').textContent=t('再生ボタンでことばを聴けます。','Use os botões para ouvir a palavra.','もういちど きけるよ','Ouça de novo.');
     if(center && zoom>1){const viewport=$('scene-viewport'),canvas=$('scene-canvas');viewport.scrollTo({left:word.marker[0]/1000*canvas.clientWidth-viewport.clientWidth/2,top:word.marker[1]/707*canvas.clientHeight-viewport.clientHeight/2,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
     if(autoplay)play(language);
   }
   async function play(lang){
     stop();const token=playToken,word=selected,scene=current;
     audio.src=word.audio[lang];audio.playbackRate=slow?.75:1;audio.preservesPitch=true;
-    $('audio-status').textContent=t(`${lang==='ja'?'日本語':'ポルトガル語'}の音声を読み込んでいます…`,'Carregando o áudio…','…');
-    try{await audio.play();if(token!==playToken)return;$('sound-wave').classList.add('playing');$('audio-status').textContent=t(`${lang==='ja'?word.ja:word.pt} を再生中`, `Ouvindo: ${word[lang]}`, '♪');
+    $('audio-status').textContent=t(`${lang==='ja'?'日本語':'ポルトガル語'}の音声を読み込んでいます…`,'Carregando o áudio…','…','…');
+    try{await audio.play();if(token!==playToken)return;$('sound-wave').classList.add('playing');$('audio-status').textContent=t(`${lang==='ja'?word.ja:word.pt} を再生中`, `Ouvindo: ${word[lang]}`, '♪','♪');
       if(!heard.has(scene.id))heard.set(scene.id,new Set());heard.get(scene.id).add(word.id);updateProgress();
-    }catch(error){if(token===playToken){$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('音声を再生できませんでした。再生ボタンでもう一度お試しください。','Não foi possível reproduzir. Toque no botão para tentar novamente.','もういちど おしてね');}}
+    }catch(error){if(token===playToken){$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('音声を再生できませんでした。再生ボタンでもう一度お試しください。','Não foi possível reproduzir. Toque no botão para tentar novamente.','もういちど おしてね','Toque de novo.');}}
   }
   function renderScene(scene){
     $('cover-page').hidden=true;$('scene-page').hidden=false;document.querySelector('.chapter').hidden=false;
@@ -34,7 +35,7 @@
     const season=seasons[scene.season],index=scenes.indexOf(scene);
     document.title=`${isPt()?scene.titlePt:scene.titleJa} | ${title()}`;$('scene-title-ja').textContent=sceneName(scene);$('scene-title-ja').lang=isPt()?'pt-BR':'ja';$('scene-title-pt').textContent=isPt()?scene.titleJa:scene.titlePt;$('scene-title-pt').lang=isPt()?'ja':'pt-BR';$('season-label').textContent=isPt()?(scene.id==='14'?'Inverno no Japão / Verão no Brasil':season.pt):scene.seasonLabel||`${season.ja} · ${season.pt}`;document.querySelector('.spring-dot').style.background=season.color;
     $('chapter-number').textContent=`${String(index+1).padStart(2,'0')} / ${scenes.length}`;$('vocabulary-title').textContent=isPt()?'Palavras da cena':scene.listTitle;$('word-count').textContent=t(`${words.length}項目`,`${words.length} itens`);
-    $('scene-image').setAttribute('href',scene.image);$('scene').setAttribute('aria-label',t(`${scene.titleJa}。絵の対象を選ぶとことばを聴けます。`,`${scene.titlePt}. Toque nos objetos para ouvir.`, 'えを さわると こえが きこえるよ'));$('original-image').src=scene.original;$('original-image').alt=t(`元の${scene.titleJa}の手描きの絵。`,`Desenho original: ${scene.titlePt}.`);
+    $('scene-image').setAttribute('href',scene.image);$('scene').setAttribute('aria-label',t(`${scene.titleJa}。絵の対象を選ぶとことばを聴けます。`,`${scene.titlePt}. Toque nos objetos para ouvir.`, 'えを さわると こえが きこえるよ','Toque para ouvir.'));$('original-image').src=scene.original;$('original-image').alt=t(`元の${scene.titleJa}の手描きの絵。`,`Desenho original: ${scene.titlePt}.`);
     $('scene-select').value=scene.id;$('previous-scene').disabled=index===0;$('next-scene').disabled=index===scenes.length-1;
     for(const word of [...words].sort((a,b)=>b.rect[2]*b.rect[3]-a.rect[2]*a.rect[3])){
       const wordIndex=words.indexOf(word),g=svg('g',{'class':'hotspot','role':'button','tabindex':'0','aria-label':isPt()?`${word.pt} / ${word.ja}`:`${word.ja} / ${word.pt}`,'aria-pressed':'false','data-word':word.id});
@@ -47,7 +48,7 @@
     for(const word of words)$('word-list').append(buttons.get(word.id));
     // Numbered buttons stay above the regions, even when nearby objects have overlapping rectangles.
     for(const [index,word] of words.entries()){
-      const marker=svg('g',{'class':'marker','data-marker':word.id,'aria-hidden':'true'});marker.append(svg('circle',{cx:word.marker[0],cy:word.marker[1],r:view.mode==='kids'?24:16}));const number=svg('text',{x:word.marker[0],y:word.marker[1]});number.textContent=index+1;marker.append(number);marker.addEventListener('click',()=>select(word,true,false));$('hotspots').append(marker);
+      const marker=svg('g',{'class':'marker','data-marker':word.id,'aria-hidden':'true'});marker.append(svg('circle',{cx:word.marker[0],cy:word.marker[1],r:view.simple?24:16}));const number=svg('text',{x:word.marker[0],y:word.marker[1]});number.textContent=index+1;marker.append(number);marker.addEventListener('click',()=>select(word,true,false));$('hotspots').append(marker);
     }
     select(words[0],false,false);setZoom(1);updateProgress();$('scene-announcement').textContent=t(`${index+1}番目の場面、${scene.titleJa}を表示しました。`,`Cena ${index+1}: ${scene.titlePt}.`);
     for(const button of document.querySelectorAll('.scene-card'))button.setAttribute('aria-current',button.dataset.scene===scene.id?'page':'false');
@@ -64,9 +65,9 @@
   }
   $('scene-select').onchange=e=>goScene(e.target.value);$('previous-scene').onclick=()=>goScene(scenes[scenes.indexOf(current)-1].id);$('next-scene').onclick=()=>goScene(scenes[scenes.indexOf(current)+1].id);window.addEventListener('hashchange',readHash);
   for(const id of ['cover-contents','cover-image-contents','kids-contents'])$(id).onclick=()=>$('contents-dialog').showModal();
-  audio.addEventListener('ended',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('もう一度聴くときは、再生ボタンを押してください。','Toque no botão para ouvir novamente.','もういちど きこう');});
-  audio.addEventListener('error',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('音声を読み込めませんでした。通信状態を確認して再生してください。','Não foi possível carregar o áudio. Verifique a conexão e tente novamente.','もういちど おしてね');});
-  function setLanguage(lang){language=lang;$('choose-ja').setAttribute('aria-pressed',String(lang==='ja'));$('choose-pt').setAttribute('aria-pressed',String(lang==='pt'));stop();$('audio-status').textContent=t(`絵をタップすると${lang==='ja'?'日本語':'ポルトガル語'}が流れます。`,`Toque na imagem para ouvir em ${lang==='ja'?'japonês':'português'}.`,'えを さわってね');}
+  audio.addEventListener('ended',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('もう一度聴くときは、再生ボタンを押してください。','Toque no botão para ouvir novamente.','もういちど きこう','Ouça de novo.');});
+  audio.addEventListener('error',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('音声を読み込めませんでした。通信状態を確認して再生してください。','Não foi possível carregar o áudio. Verifique a conexão e tente novamente.','もういちど おしてね','Toque de novo.');});
+  function setLanguage(lang){language=lang;$('choose-ja').setAttribute('aria-pressed',String(lang==='ja'));$('choose-pt').setAttribute('aria-pressed',String(lang==='pt'));stop();$('audio-status').textContent=t(`絵をタップすると${lang==='ja'?'日本語':'ポルトガル語'}が流れます。`,`Toque na imagem para ouvir em ${lang==='ja'?'japonês':'português'}.`,'えを さわってね','Toque na imagem.');}
   $('choose-ja').onclick=()=>setLanguage('ja');$('choose-pt').onclick=()=>setLanguage('pt');$('play-ja').onclick=()=>play('ja');$('play-pt').onclick=()=>play('pt');
   $('slow').onclick=()=>{slow=!slow;$('slow').setAttribute('aria-pressed',String(slow));audio.playbackRate=slow?.75:1;};
   function setZoom(value){zoom=Math.max(1,Math.min(3,value));$('scene-canvas').style.width=`${zoom*100}%`;$('scene-viewport').style.maxHeight=zoom===1?'none':'65vh';$('zoom-label').textContent=`${Math.round(zoom*100)}%`;$('zoom-out').disabled=zoom===1;$('zoom-in').disabled=zoom===3;if(zoom===1)$('scene-viewport').scrollTo(0,0);}
@@ -82,6 +83,6 @@
     if(!$('scene-page').hidden){renderScene(current);if(chosen)select(words.find(w=>w.id===chosen)||words[0],false,false);}else document.title=title();
     setLanguage(language);
   }
-  window.addEventListener('ejiten-view-change',()=>{if(view.mode!=='kids')language=isPt()?'pt':'ja';else{$('show-numbers').checked=true;$('scene').classList.remove('hide-numbers');}refreshView();});
+  window.addEventListener('ejiten-view-change',()=>{language=isPt()?'pt':'ja';if(view.simple){$('show-numbers').checked=true;$('scene').classList.remove('hide-numbers');}refreshView();});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});readHash();refreshView();
 })();
