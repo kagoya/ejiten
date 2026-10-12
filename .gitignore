@@ -11,6 +11,7 @@
 !/dist/app.js
 !/dist/style.css
 !/dist/scenes.js
+!/dist/views.js
 !/dist/assets/
 !/dist/audio/
 /dist/audio/*

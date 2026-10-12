@@ -6,10 +6,11 @@
   <meta name="theme-color" content="#f7f5ed">
   <meta name="description" content="四季の12場面の絵をタップして、日本語とブラジルのポルトガル語を聞いてみよう。">
   <title>ぽるとがるご にほんご ことばえじてん（デジタル版）</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=views-1">
   <link rel="icon" href="assets/favicon.svg?v=flags" type="image/svg+xml">
   <script src="scenes.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="views.js?v=1" defer></script>
+  <script src="app.js?v=views-1" defer></script>
 </head>
 <body>
 <svg class="symbols" aria-hidden="true"><defs>
@@ -21,6 +22,7 @@
 <header class="topbar">
   <a class="brand" href="#cover" aria-label="ぽるとがるご にほんご ことばえじてん（デジタル版） 表紙"><img class="brand-flags" src="assets/favicon.svg?v=flags" width="68" height="44" alt="日本とブラジルの国旗"><span class="brand-title">ぽるとがるご にほんご<br>ことばえじてん（デジタル版）<small>日本語 × Português</small></span></a>
   <div class="header-actions"><a class="cover-link" href="#cover">表紙</a><button id="show-contents">目次 <span aria-hidden="true">▦</span></button><span class="chapter"><span id="chapter-number">01 / 12</span></span></div>
+<label class="view-choice"><span>表示 / Visualização</span><select id="view-select" aria-label="表示を切り替える / Mudar visualização"><option value="ja">日本語</option><option value="pt">Português</option><option value="kids">かんたん / Infantil</option></select></label>
 </header>
 <main id="cover-page" hidden>
   <div class="cover-intro"><p class="eyebrow">DICIONÁRIO ILUSTRATIVO EM PORTUGUÊS E JAPONÊS</p><h1>ぽるとがるご にほんご<br>ことばえじてん（デジタル版）</h1><p>四季の12場面を、絵と音声で楽しめます。</p></div>
@@ -33,11 +35,11 @@
     <div><p class="eyebrow"><span class="spring-dot"></span> <span id="season-label">はる · Primavera</span></p><h1><span id="scene-title-ja" class="title-ja">春の教室</span><span id="scene-title-pt" lang="pt-BR">A primavera na sala de aula</span></h1><p class="lead">絵の中のものをタップして、ことばを聞いてみよう。</p></div>
     <div class="language-choice"><span id="language-label">絵をタップしたときに聴くことば</span><div class="segmented" role="group" aria-labelledby="language-label"><button id="choose-ja" aria-pressed="true">日本語</button><button id="choose-pt" aria-pressed="false" lang="pt-BR">Português</button></div></div>
   </div>
-  <nav class="scene-navigation" aria-label="場面の移動"><button id="previous-scene">← 前の場面</button><label><span class="sr-only">場面を選ぶ</span><select id="scene-select"></select></label><button id="next-scene">次の場面 →</button></nav>
+  <nav class="scene-navigation" aria-label="場面の移動"><button id="previous-scene">← 前の場面</button><label><span class="sr-only">場面を選ぶ</span><select id="scene-select"></select></label><button id="kids-contents" class="kids-only" aria-haspopup="dialog" aria-controls="contents-dialog">▦ えをえらぶ</button><button id="next-scene">次の場面 →</button></nav>
   <p class="sr-only" id="scene-announcement" role="status"></p>
   <div class="workspace">
     <section class="picture-panel" aria-label="場面の絵と再生">
-      <div class="picture-toolbar"><label class="number-toggle"><input type="checkbox" id="show-numbers" checked> 番号を表示</label><div class="zoom-controls"><button id="zoom-out" aria-label="絵を縮小"><svg><use href="#minus"/></svg></button><output id="zoom-label" aria-live="polite">100%</output><button id="zoom-in" aria-label="絵を拡大"><svg><use href="#plus"/></svg></button><button id="zoom-reset" aria-label="絵を全体表示"><svg><use href="#reset"/></svg></button></div></div>
+      <div class="picture-toolbar"><label class="number-toggle"><input type="checkbox" id="show-numbers" checked> <span id="number-label">番号を表示</span></label><div class="zoom-controls"><button id="zoom-out" aria-label="絵を縮小"><svg><use href="#minus"/></svg></button><output id="zoom-label" aria-live="polite">100%</output><button id="zoom-in" aria-label="絵を拡大"><svg><use href="#plus"/></svg></button><button id="zoom-reset" aria-label="絵を全体表示"><svg><use href="#reset"/></svg></button></div></div>
       <div class="scene-viewport" id="scene-viewport"><div class="scene-canvas" id="scene-canvas">
         <svg id="scene" viewBox="0 0 1000 707" aria-label="春の教室。いす、かばん、はさみなどを選べます。">
           <image id="scene-image" href="assets/classroom-generated.webp" width="1000" height="707" preserveAspectRatio="none"/>
