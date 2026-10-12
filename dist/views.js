@@ -28,7 +28,7 @@
   bind('#show-original','Ver o desenho original ↗');
   bind('#play-ja>span','Ouvir em japonês<small>日本語</small>','<svg class="language-flag" viewBox="0 0 30 20" aria-hidden="true"><rect x=".5" y=".5" width="29" height="19" rx="1" fill="white" stroke="#cbd4c4"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg> にほんご');
   bind('#play-pt>span','Ouvir em português<small>Português do Brasil</small>','<svg class="language-flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" rx="1" fill="#009b3a"/><path d="M15 2 28 10 15 18 2 10Z" fill="#fedf00"/><circle cx="15" cy="10" r="5" fill="#002776"/><path d="M10 9a16 16 0 0 1 10 2" fill="none" stroke="white" stroke-width="1"/></svg> Português');
-  bind('#slow','Ouvir devagar','ゆっくり');
+  bind('#slow','Devagar','ゆっくり'); bind('#speed-normal','Normal','ふつう');
   bind('.list-help','Selecione uma palavra para destacar o objeto e ouvir o áudio.');
   bind('.discovery>span','Palavras ouvidas');
   bind('footer>p','Veja, ouça e repita.');
@@ -50,10 +50,12 @@
   bind('.spine-caption','Texto da lombada: ぽるとがるご にほんご ことばえじてん／仁愛大学人間生活学部子ども教育学科');
   bind('.credits-page .credit-section:last-of-type h2','Sobre a edição digital');
   bind('.digital-credit dt','Edição digital');
+  bind('.fish-audio-credit','Os áudios em japonês foram gerados com <a href="https://fish.audio/">Fish Audio</a>, modelo S2.1 Pro (API gratuita), usando a voz <a href="https://fish.audio/ja/app/m/f1d92c18f84e47c6b5bc0cebb80ddaf5/">女性アナウンサー（ベテラン）</a>. As palavras foram lidas em grupos de pelo menos dez, separadas por vírgulas, e divididas nos intervalos de silêncio. As frases curtas foram geradas separadamente. Há duas velocidades: normal (0,85) e devagar (0,75). Alguns áudios lentos receberam um ajuste adicional de velocidade, preservando o tom da voz. Os áudios em português do Brasil continuam usando a síntese de voz do Microsoft Edge.');
   bind('.credits-page .credit-section:last-of-type>p:first-of-type','Esta edição web segue as cenas da obra original, com novas ilustrações geradas e áudios sintetizados em japonês e português do Brasil. A capa, a lombada e a contracapa usam os desenhos originais.');
   bind('.credits-page .credit-section:last-of-type>p:last-of-type','As informações acima se referem à obra original, publicada em 2020. Os áudios e as ilustrações gerados para a edição web não são trabalhos dos autores da obra original.');
   bind('.credits-page .cover-actions>a:last-child','Voltar à capa');
   const aria={'表紙画像から目次を開く':'Abrir as cenas pela capa','場面の移動':'Navegação entre cenas','場面の絵と再生':'Imagem da cena e áudio','絵を縮小':'Diminuir a imagem','絵を拡大':'Ampliar a imagem','絵を全体表示':'Mostrar a imagem inteira','元の絵を閉じる':'Fechar o desenho original','目次を閉じる':'Fechar as cenas','日本とブラジルの国旗':'Bandeiras do Japão e do Brasil','教室のことば':'Palavras da cena'};
+  aria['読み上げの速さ']='Velocidade da fala';
   const ariaBindings=[];for(const el of document.querySelectorAll('[aria-label],[alt]'))for(const attr of ['aria-label','alt']){const ja=el.getAttribute(attr);if(aria[ja])ariaBindings.push({el,attr,ja,pt:aria[ja]});}
   function apply(){
     try{localStorage.setItem('ejiten-view',mode);}catch{}

@@ -21,4 +21,6 @@
 !/dist/audio/voicevox/
 !/dist/audio/fish-batch/
 !/dist/audio/fish-batch-slow/
+!/dist/audio/fish/
+!/dist/fish-audio.js
 !/dist/fish-batch-comparison.html

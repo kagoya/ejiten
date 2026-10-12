@@ -7,7 +7,7 @@
   const sceneName=scene=>view.simple?(isPt()?kidPtTitles:kidTitles)[scenes.indexOf(scene)]:isPt()?scene.titlePt:scene.titleJa;
   const title=()=>t('ぽるとがるご にほんご ことばえじてん（デジタル版）','Dicionário ilustrativo em português e japonês (edição digital)');
   const seasons={spring:{ja:'はる',pt:'Primavera',color:'#e5a69c'},summer:{ja:'なつ',pt:'Verão',color:'#e5be61'},autumn:{ja:'あき',pt:'Outono',color:'#d79b62'},winter:{ja:'ふゆ',pt:'Inverno',color:'#87aeba'}};
-  let current, words=[], selected, language=isPt()?'pt':'ja', zoom=1, slow=false, playToken=0;
+  let current, words=[], selected, language=isPt()?'pt':'ja', zoom=1, slow=false, playToken=0, playingLanguage=language;
   const heard=new Map(),audio=$('audio'),groups=new Map(),buttons=new Map();
   function svg(tag,attrs){const el=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);return el;}
   function stop(){playToken++;audio.pause();audio.currentTime=0;$('sound-wave').classList.remove('playing');}
@@ -23,7 +23,9 @@
   }
   async function play(lang){
     stop();const token=playToken,word=selected,scene=current;
-    audio.src=word.audio[lang];audio.playbackRate=slow?.75:1;audio.preservesPitch=true;
+    playingLanguage=lang;
+    const fish=window.FISH_AUDIO?.items[`s${scene.id}-${word.id}`]?.[lang];
+    audio.src=fish?fish[slow?'slow':'normal']:word.audio[lang];audio.playbackRate=fish?1:(slow?.75:1);audio.preservesPitch=true;
     $('audio-status').textContent=t(`${lang==='ja'?'日本語':'ポルトガル語'}の音声を読み込んでいます…`,'Carregando o áudio…','…','…');
     try{await audio.play();if(token!==playToken)return;$('sound-wave').classList.add('playing');$('audio-status').textContent=t(`${lang==='ja'?word.ja:word.pt} を再生中`, `Ouvindo: ${word[lang]}`, '♪','♪');
       if(!heard.has(scene.id))heard.set(scene.id,new Set());heard.get(scene.id).add(word.id);updateProgress();
@@ -69,7 +71,8 @@
   audio.addEventListener('error',()=>{$('sound-wave').classList.remove('playing');$('audio-status').textContent=t('音声を読み込めませんでした。通信状態を確認して再生してください。','Não foi possível carregar o áudio. Verifique a conexão e tente novamente.','もういちど おしてね','Toque de novo.');});
   function setLanguage(lang){language=lang;$('choose-ja').setAttribute('aria-pressed',String(lang==='ja'));$('choose-pt').setAttribute('aria-pressed',String(lang==='pt'));stop();$('audio-status').textContent=t(`絵をタップすると${lang==='ja'?'日本語':'ポルトガル語'}が流れます。`,`Toque na imagem para ouvir em ${lang==='ja'?'japonês':'português'}.`,'えを さわってね','Toque na imagem.');}
   $('choose-ja').onclick=()=>setLanguage('ja');$('choose-pt').onclick=()=>setLanguage('pt');$('play-ja').onclick=()=>play('ja');$('play-pt').onclick=()=>play('pt');
-  $('slow').onclick=()=>{slow=!slow;$('slow').setAttribute('aria-pressed',String(slow));audio.playbackRate=slow?.75:1;};
+  function setSpeed(value){const resume=!audio.paused;slow=value;$('slow').setAttribute('aria-pressed',String(slow));$('speed-normal').setAttribute('aria-pressed',String(!slow));if(resume)play(playingLanguage);else stop();}
+  $('slow').onclick=()=>setSpeed(true);$('speed-normal').onclick=()=>setSpeed(false);
   function setZoom(value){zoom=Math.max(1,Math.min(3,value));$('scene-canvas').style.width=`${zoom*100}%`;$('scene-viewport').style.maxHeight=zoom===1?'none':'65vh';$('zoom-label').textContent=`${Math.round(zoom*100)}%`;$('zoom-out').disabled=zoom===1;$('zoom-in').disabled=zoom===3;if(zoom===1)$('scene-viewport').scrollTo(0,0);}
   $('zoom-in').onclick=()=>setZoom(zoom+.5);$('zoom-out').onclick=()=>setZoom(zoom-.5);$('zoom-reset').onclick=()=>setZoom(1);
   $('show-numbers').onchange=e=>$('scene').classList.toggle('hide-numbers',!e.target.checked);
